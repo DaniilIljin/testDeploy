@@ -1,20 +1,22 @@
 import { useFrame } from "@react-three/fiber"
-import { log } from "console"
+import { Mesh } from "three"
 import { useRef } from "react"
 
 type Props = {
-  position: [x: number, y:number, z:number],
+  position: [x: number, y: number, z: number],
   side: [width: number, height: number, depth: number],
   color: string
 }
 
-const Cube = ({position, side, color} : Props) => {
-  
-  const ref = useRef()
+const Cube = ({ position, side, color }: Props) => {
+  const ref = useRef<Mesh>(null)
+
   useFrame((state, delta) => {
-    ref.current.rotation.x += delta
-    ref.current.rotation.y += delta
-    
+    if (ref.current) {
+      ref.current.rotation.x += delta
+      ref.current.rotation.z += delta
+      ref.current.position.y = Math.sin(state.clock.elapsedTime) * 2
+    }
   })
 
   return <>
