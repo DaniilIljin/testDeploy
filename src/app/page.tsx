@@ -2,6 +2,7 @@
 
 import { Canvas } from "@react-three/fiber";
 import Cube from "@/component/Cube";
+import Sphere from "@/component/Sphere";
 
 export default function Home() {
   return (
@@ -17,7 +18,8 @@ export default function Home() {
           <Cube position={[-1, 1, 1]} side={1} color="purple" />
         </group> */}
 
-      <Cube position={[0,0,0]} side={[2,2,2]} color="orange"/>
+      {/* <Cube position={[0,0,0]} side={[2,2,2]} color="orange"/> */}
+      <Sphere position={[0,0,0]} size={[2,30,30]} color="red"/>
 
       </Canvas>
     </>
