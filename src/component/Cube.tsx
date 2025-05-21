@@ -4,11 +4,11 @@ import { useRef } from "react"
 
 type Props = {
   position: [x: number, y: number, z: number],
-  side: [width: number, height: number, depth: number],
+  size: [width: number, height: number, depth: number],
   color: string
 }
 
-const Cube = ({ position, side, color }: Props) => {
+const Cube = ({ position, size, color }: Props) => {
   const ref = useRef<Mesh>(null)
 
   useFrame((state, delta) => {
@@ -21,7 +21,7 @@ const Cube = ({ position, side, color }: Props) => {
 
   return <>
     <mesh position={position} ref={ref}>
-      <boxGeometry args={side} />
+      <boxGeometry args={size} />
       <meshStandardMaterial color={color} />
     </mesh>
   </>
