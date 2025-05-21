@@ -4,3 +4,7 @@
 
 # R3F docs
 1. [official docs](https://r3f.docs.pmnd.rs/getting-started/introduction)
+
+2. [drei docs](https://drei.docs.pmnd.rs/getting-started/introduction)
+
+3. [leva docs](https://github.com/pmndrs/leva)
