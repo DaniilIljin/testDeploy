@@ -5,6 +5,7 @@ import Cube from "@/component/Cube";
 import { OrbitControls, useHelper } from "@react-three/drei";
 import { DirectionalLightHelper } from "three";
 import { Leva } from "leva";
+import { Stars } from "@react-three/drei";
 
 const Scene = () => {
   const directionLightRef = useHelper()
@@ -26,6 +27,7 @@ export default function Home() {
     <>
       <Leva />
       <Canvas>
+        <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
         <Scene />
       </Canvas>
     </>
