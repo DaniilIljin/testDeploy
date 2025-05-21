@@ -2,25 +2,31 @@
 
 import { Canvas } from "@react-three/fiber";
 import Cube from "@/component/Cube";
-import Sphere from "@/component/Sphere";
+import { OrbitControls, useHelper } from "@react-three/drei";
+import { DirectionalLightHelper } from "three";
+import { Leva } from "leva";
+
+const Scene = () => {
+  const directionLightRef = useHelper()
+  useHelper(directionLightRef, DirectionalLightHelper, 0.5, "white")
+
+  return <>
+    <directionalLight position={[2, 2, 3]} intensity={5}
+      ref={directionLightRef}
+    />
+    <ambientLight intensity={0.1} />
+    <Cube />
+    <OrbitControls />
+  </>
+}
 
 export default function Home() {
+
   return (
     <>
+      <Leva />
       <Canvas>
-        <directionalLight position={[0, 0, 3]} intensity={5} />
-
-
-        {/* <group>
-          <Cube position={[1, -1, 1]} side={1} color="green" />
-          <Cube position={[1, 1, 1]} side={1} color="orange" />
-          <Cube position={[-1, -1, 1]} side={1} color="red" />
-          <Cube position={[-1, 1, 1]} side={1} color="purple" />
-        </group> */}
-
-      {/* <Cube position={[0,0,0]} side={[2,2,2]} color="orange"/> */}
-      <Sphere position={[0,0,0]} size={[2,30,30]} color="red"/>
-
+        <Scene />
       </Canvas>
     </>
   );
